@@ -30,13 +30,13 @@
         <div id="losses"></div>
 
     <div class="crystals">
-        <img id="red" src="https://www.colourbox.com/preview/4545062-red-crystal.jpg">
+        <img id="red" class="data-value" src="https://www.colourbox.com/preview/4545062-red-crystal.jpg">
 
-        <img id="blue" src="https://images-na.ssl-images-amazon.com/images/I/51snWRfynML._SL500_.jpg">
+        <img id="blue" class="data-value" src="https://images-na.ssl-images-amazon.com/images/I/51snWRfynML._SL500_.jpg">
 
-        <img id="yellow" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLWdoqVf8dP5AjAWtN4zUmEmeUI38D7uB-k1JF59MpptBVAXDlmw">
+        <img id="yellow" class="data-value" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLWdoqVf8dP5AjAWtN4zUmEmeUI38D7uB-k1JF59MpptBVAXDlmw">
 
-        <img id="green" src="https://vignette.wikia.nocookie.net/thelorienlegacies/images/7/71/Green_Wind_Crystal.PNG/revision/latest?cb=20160610041134">
+        <img id="green" class="data-value" src="https://vignette.wikia.nocookie.net/thelorienlegacies/images/7/71/Green_Wind_Crystal.PNG/revision/latest?cb=20160610041134">
     </div>
 
 
@@ -57,19 +57,26 @@
     $("#myNum").text(myScore);
 
     // There are four crystals. On click each crystal generates a random number from 1-12.
-    $(".crystals").on("click", function() {
 
-        if($("#red"))
-            
-        });
-        // Increases  my score by 11.
-        myScore+= 11;
+      // We're creating each individual crystal to have their own value.
+    var numberOptions = [10, 5, 3, 7];
+    for (var i = 0; i < numberOptions.length; i++) {
+        var imageCrystal = $("img");
+        imageCrystal.attr("data-crystalvalue", numberOptions[i]);
+    }
+
+    // On click function   
+    $(".data-value").on("click", function() {
+        // Look into the individual crystal that was clicked.
+        var crystalValue = ($(this).attr("data-crystalvalue"));
+
+        // Extract value from it, convert it to an integer. Add it to my Score.
+        crystalValue = parseInt(crystalValue);
+        myScore += crystalValue;
+        
         $("#myNum").text(myScore);
         
-
-
-
-
+        // Win/ Lose Condition.
         if (myScore === numToTarget){
             alert("Woohoo, you won!");
             $("#myNum").text(myScore = 0);
@@ -83,11 +90,7 @@
    
     });
 
-        // The first click is stored in myScore.
-
-            // Every crystal click after that adds to myScore.
-
-            // if myScore > randScore. Reset the loop.
+       
 
         
 
