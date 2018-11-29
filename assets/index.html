@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   
+    <title>Crystal Game</title>
+    <style type ="text/css">
+
+        img {
+            max-width:250px;
+            max-height:250px;
+        }
+
+    </style>   
+</head>
+<body>
+
+    <h1>Crystals Collector</h1>
+
+    <div> Directions, Directions, Directions. </div>
+
+    <h1>Number to Target: <span id="targNum"></span></h1>
+    <h1>Your Score: <span id="myNum"></span></h1>
+   
+
+    <div class ="counts"></div>
+        <div id="wins"></div>
+        <div id="losses"></div>
+
+    <div class="crystals">
+        <img id="red" src="https://www.colourbox.com/preview/4545062-red-crystal.jpg">
+
+        <img id="blue" src="https://images-na.ssl-images-amazon.com/images/I/51snWRfynML._SL500_.jpg">
+
+        <img id="yellow" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLWdoqVf8dP5AjAWtN4zUmEmeUI38D7uB-k1JF59MpptBVAXDlmw">
+
+        <img id="green" src="https://vignette.wikia.nocookie.net/thelorienlegacies/images/7/71/Green_Wind_Crystal.PNG/revision/latest?cb=20160610041134">
+    </div>
+
+
+   
+    
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+    // Number user has to get.
+    var numToTarget = 30;
+
+    $("#targNum").text(numToTarget);
+
+    
+    // Number that I currently have right now.
+    var myScore = 0
+    $("#myNum").text(myScore);
+
+    // There are four crystals. On click each crystal generates a random number from 1-12.
+    $(".crystals").on("click", function() {
+
+        if($("#red"))
+            
+        });
+        // Increases  my score by 11.
+        myScore+= 11;
+        $("#myNum").text(myScore);
+        
+
+
+
+
+        if (myScore === numToTarget){
+            alert("Woohoo, you won!");
+            $("#myNum").text(myScore = 0);
+        }
+        else if (myScore > numToTarget){
+            alert("Oops! You went over.");
+            $("#myNum").text(myScore = 0);
+        }
+
+
+   
+    });
+
+        // The first click is stored in myScore.
+
+            // Every crystal click after that adds to myScore.
+
+            // if myScore > randScore. Reset the loop.
+
+        
+
+
+    </script>
+   
+    
+
+
+
+
+
+    
+</body>
+</html>
