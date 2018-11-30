@@ -6,115 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
    
     <title>Crystal Game</title>
-    <style type ="text/css">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
 
-        img {
-            max-width:250px;
-            max-height:250px;
-        }
-
-    </style>   
 </head>
 <body>
 
     <h1>Crystals Collector</h1>
 
-    <div> Directions, Directions, Directions. </div>
+    <div id="directions">Each crystal has a hidden value! Tap each crystal and try to match with this number below!</div>
 
     <h1>Number to Target: <span id="targNum"></span></h1>
-    <h1>Your Score: <span id="myNum"></span></h1>
+    <h1>Your Number: <span id="myNum"></span></h1>
+    <h1> Wins: <span id="myWins"></span></h1></h1>
+    <h1> Losses: <span id="myLosses"></span></h1> </h1>
    
-
-    <div class ="counts"></div>
-        <div id="wins"></div>
-        <div id="losses"></div>
-
     <div class="crystals">
-        <!--
-        <img id="red" class="data-value" src="https://www.colourbox.com/preview/4545062-red-crystal.jpg">
-
-        <img id="blue" class="data-value" src="https://images-na.ssl-images-amazon.com/images/I/51snWRfynML._SL500_.jpg">
-
-        <img id="yellow" class="data-value" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLWdoqVf8dP5AjAWtN4zUmEmeUI38D7uB-k1JF59MpptBVAXDlmw">
-
-        
-        <img id="green" class="data-value" src="https://vignette.wikia.nocookie.net/thelorienlegacies/images/7/71/Green_Wind_Crystal.PNG/revision/latest?cb=20160610041134">
-        -->
     </div>
 
 
    
-    
-    
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script type="text/javascript">
-
-    // Number user has to get.
-    var numToTarget = 30;
-     // Number that I currently have right now.
-    var myScore = 0
-    var imgArray = [
-    "https://www.colourbox.com/preview/4545062-red-crystal.jpg",
-    "https://images-na.ssl-images-amazon.com/images/I/51snWRfynML._SL500_.jpg",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLWdoqVf8dP5AjAWtN4zUmEmeUI38D7uB-k1JF59MpptBVAXDlmw",
-    "https://vignette.wikia.nocookie.net/thelorienlegacies/images/7/71/Green_Wind_Crystal.PNG/revision/latest?cb=20160610041134"
-    ];
-
-
-    $("#targNum").text(numToTarget);
-
-    $("#myNum").text(myScore);
-
-    // There are four crystals. On click each crystal generates a random number from 1-12.
-
-      // We're creating each individual crystal to have their own value.
-    var numberOptions = [10, 5, 3, 7];
-  
-
-
-    for (var i = 0; i < numberOptions.length; i++) {
-        var imageCrystal = $("<img>");
-        imageCrystal.addClass("crystal-image");
-        imageCrystal.attr("data-crystalvalue", numberOptions[i]);
-        imageCrystal.attr("src", imgArray[i]);
-        $(".crystals").append(imageCrystal);
-
-    }
-
-    // On click function   
-    $(".data-value").on("click", function() {
-        // Look into the individual crystal that was clicked.
-        var crystalValue = ($(this).attr("data-crystalvalue"));
-
-        // Extract value from it, convert it to an integer. 
-        crystalValue = parseInt(crystalValue);
-
-        //Add it to my Score.
-        myScore += crystalValue;
-        
-        $("#myNum").text(myScore);
-        
-        // Win/ Lose Condition.
-        if (myScore === numToTarget){
-            alert("Woohoo, you won!");
-            $("#myNum").text(myScore = 0);
-        }
-        else if (myScore > numToTarget){
-            alert("Oops! You went over.");
-            $("#myNum").text(myScore = 0);
-        }
-
-
-   
-    });
-
-       
-
-        
-
-
-    </script>
-   
+    <script src="javascript/game.js"></script>
+    
     
 
 

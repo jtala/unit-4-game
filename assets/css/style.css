@@ -1,0 +1,12 @@
+img {
+    max-width:250px;
+    max-height:250px;
+}
+
+body{
+    text-align: center;
+    margin: 30px;
+    margin-top: 400px;
+    font-family: 'Work Sans', sans-serif;
+
+}
