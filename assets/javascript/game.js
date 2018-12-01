@@ -19,27 +19,31 @@
     //Wrapping a reset button. Everytime I tried to do this, it broke the code!
 
     // function reset(){} that encapsulated the whole thing from here on down.
-    
+    function reset(){
+      
+        $(".crystals").empty();
 
-    // Array that has random values from 0-12.
-    var randomArr = Array.from({length: 4}, () => Math.floor(Math.random() * 12)+1);
-    console.log(randomArr);
+        // Array that has random values from 0-12.
+        var randomArr = Array.from({length: 4}, () => Math.floor(Math.random() * 12)+1);
+        console.log(randomArr);
 
-    // For loop  to generate crystal images.
-    for (var i = 0; i < 4; i++) {
-        // giving each Crystal an img tag.
-        var imageCrystal = $("<img>");
-        imageCrystal.attr("src", imgArray[i]);
-        imageCrystal.addClass("crystal-image");
-        
-        // giving each crystal a random number value.
-        imageCrystal.attr("data-crystalvalue", randomArr[i]);
-        $(".crystals").append(imageCrystal);
+        // For loop  to generate crystal images.
+        for (var i = 0; i < 4; i++) {
+            // giving each Crystal an img tag.
+            var imageCrystal = $("<img>");
+            imageCrystal.attr("src", imgArray[i]);
+            imageCrystal.addClass("crystal-image");
+            
+            // giving each crystal a random number value.
+            imageCrystal.attr("data-crystalvalue", randomArr[i]);
+            $(".crystals").append(imageCrystal);
 
+        }
     }
+    reset();
 
     // On click function.
-    $(".crystal-image").on("click", function() {
+    $(document).on("click", ".crystal-image", function() {
     
         // Look into the individual crystal that was clicked.
         var crystalValue = ($(this).attr("data-crystalvalue"));
@@ -59,7 +63,7 @@
             //resets score to 0
             $("#myNum").text(myScore = 0);
             //Gives crystals new values. I couldn't figure out how to do this!
-            
+            reset();
            
         }
         else if (myScore >= numToTarget){
@@ -67,7 +71,7 @@
             losses++;
             $("#myNum").text(myScore = 0);
             //Gives crystals new values. I couldn't figure out how to do this!
-    
+            reset();
             
         }
     
@@ -77,7 +81,7 @@
     $("#myLosses").text(losses);
 
     
-
+    
     });
 
 
